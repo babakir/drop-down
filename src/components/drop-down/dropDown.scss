@@ -1,0 +1,144 @@
+// ==========================
+// Variables
+// ==========================
+$border-radius: 12px;
+$dropdown-radius: 16px;
+$option-radius: 8px;
+
+$primary-color: #3b82f6;
+$primary-light: #bfdbfe;
+$selected-bg: #f1f5f9;
+$selected-color: #1a56db;
+
+$text-muted: #aaa;
+
+$font-base: 0.875rem;
+$font-small: 0.75rem;
+
+// ==========================
+// Multi Select Dropdown
+// ==========================
+.multi-select-dropdown {
+    width: 300px;
+    font-family: sans-serif;
+    position: relative;
+
+    .input-box {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 6px;
+
+        padding: 4px 8px;
+        min-height: 40px;
+
+        border: 1px solid #ccc;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: border 0.2s ease, outline 0.2s ease;
+
+        &.active {
+            border: 2px solid $primary-color;
+            outline: 3px solid $primary-light;
+        }
+
+        .placeholder {
+            color: $text-muted;
+            font-size: $font-base;
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: $font-base;
+            height: 100%;
+            padding: 8px;
+        }
+
+        .arrow {
+            margin-left: auto;
+            font-size: $font-small;
+            transition: transform 0.3s ease;
+
+            &.rotate {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 120%;
+        left: 0;
+        right: 0;
+        z-index: 10;
+
+        padding: 8px 4px;
+        max-height: 300px;
+
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: $dropdown-radius;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        animation: fadeIn 0.2s ease;
+
+        .options {
+            max-height: 280px;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 0 8px;
+            font-size: $font-base;
+
+            .option {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                padding: 8px;
+                min-height: 20px;
+                border-radius: $option-radius;
+                cursor: pointer;
+                transition: background 0.2s ease;
+
+                .label {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                }
+
+                &:hover {
+                    background: $selected-bg;
+                }
+
+                &.selected {
+                    background: $selected-bg;
+                    color: $selected-color;
+                }
+            }
+        }
+    }
+}
+
+// ==========================
+// Animations
+// ==========================
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

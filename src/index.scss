@@ -1,0 +1,29 @@
+body {
+  background-color: #f9fafb;
+}
+
+* {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Global scrollbar style */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* Scroll track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  /* Scroll thumb */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* On hover */
+}
